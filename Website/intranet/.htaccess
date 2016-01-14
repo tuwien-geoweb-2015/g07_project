@@ -1,0 +1,6 @@
+# .htaccess-Datei fuer Web-Verzeichnis geoweb/2015/ifip/intranet auf student.ifip.tuwien.ac.at
+AuthType Basic
+AuthName "geoweb.m10 - student.ifip - Login"
+AuthUserFile /scratch/users/geoweb2015/htdocs/g07/intranet/.htpasswd
+AuthGroupFile /dev/null
+require user geoweb2015

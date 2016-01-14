@@ -1,0 +1,170 @@
+/* Grundaussehen der Webseite*/
+body {
+	background-color: rgb(235,235,235);
+	/*min-height: 100%;*/
+	margin: 0px;
+	padding: 0px;
+}
+
+#wrapper {
+		width: 800px;
+		background: silver;
+		position: absolute;
+		left: 50%;
+		margin-left: -400px;
+		-webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+		-moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.75);
+		box-shadow: 0px 0px 15px 7px rgba(0,0,0,0.75);
+}
+/* Aussehen des Headers*/
+#header {
+		position: fixed;
+		top:0;
+		width: 800px;
+		height: 276px;
+		background: black;
+		color: white;
+		z-index: 2;
+		}
+
+		/*Aussehen der Navigationsleiste*/
+
+		ul.a {
+		    list-style-type: none;
+		    margin-top: 0 ;
+		    margin: 0;
+		    padding: 0;
+		    overflow: hidden;
+		    /*margin-left:20%;
+		    margin-right:20%;*/
+		}
+
+		li {
+		    float: left;
+		    list-style-type: none;
+		}
+
+		a:link, a:visited {
+		    display: block;
+			  width: 133.3px;
+		    font-weight: 300;
+		    color: white;
+		    background-color: black;
+		    text-align: center;
+		    padding-top: 8px;
+		    padding-bottom: 8px;
+		    text-decoration: none;
+		    text-transform: uppercase;
+				font-family: 'Titillium Web', sans-serif;
+		}
+
+		a:hover, a:active {
+		    background-color: white;
+				color: black;
+		}
+
+/* Aussehen des Main Inhalts*/
+#column-center {
+		width: 760px;
+		height: 1000px;
+		font-family: 'Titillium Web', sans-serif;
+		font-weight: 400;
+		font-size: 14px;
+		background-color: white;
+		position:relative;
+		padding-top: 276px;
+		padding-right: 20px;
+		padding-left: 20px;
+		z-index: 1;
+		}
+
+p {
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 400;
+	font-size: 10px;
+  }
+
+p.main {
+	text-align: justify;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 400;
+	font-size: 12px;
+}
+
+h1{
+	font-size: 28px;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 600;
+	text-align: left;
+  }
+
+h2{
+	font-size: 18px;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 600;
+	text-align: left;
+  }
+
+li.main {
+	font-size: 10px;
+	font-family: 'Titillium Web', sans-serif;
+	font-weight: 400;
+	list-style-type: none;
+	float: none;
+  }
+ul.main{
+	list-style-type: none;
+}
+
+
+	a.main:link, a.main:visited {
+			font-size: 10px;
+			font-family: 'Titillium Web', sans-serif;
+			font-weight: 400;
+			display: inline;
+			width: auto;
+			color: black;
+			background-color: white;
+			text-align: left;
+			padding-top: 0px;
+			padding-bottom: 0px;
+			text-decoration: none;
+			text-transform: none;
+
+	}
+	a.main:hover, a.main:active {
+			font-size: 10px;
+			font-family: 'Titillium Web', sans-serif;
+			font-weight: 400;
+			display: inline;
+			color: grey;
+	}
+
+/*Aussehen der Karte unter Analyse*/
+#map {
+	margin-top:20px;
+	width: 760px;
+	height: 550px;
+	border: 0.5px;
+	border-color: black;
+}
+
+
+	/* Aussehen für den Footer*/
+	#footer {
+	    position: fixed;
+			bottom: 0px;
+			height: 45px;
+			width: 800px;
+			background: black;
+			color: white;
+			text-align: center;
+			z-index: 2;
+	}
+	p.foot {
+		text-align: center;
+		font-family: 'Titillium Web', sans-serif;
+		font-weight: 300;
+		font-size: 10px;
+	  padding-top: 0px;
+		}

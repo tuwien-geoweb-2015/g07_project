@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+
+<html>
+<head>
+	<title>Geoweb Gruppe 7 - Feedback</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" type="text/css" href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<div id="header" >
+		<img src="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/images/Banner.png"
+			width="800px"
+      height="240px">
+
+  	<ul class="a">
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/index.htm" class="active">Home</a></li>
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/team/team.htm">Team</a></li>
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/intranet/index_intranet_g07.htm">Intranet</a></li>
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/analyse/analyse.htm">Analyse</a></li>
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/feedback/feedback.htm">Feedback</a></li>
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/impressum/impressum.htm">Impressum</a></li>
+			</ul>
+		</div>
+
+
+
+    <div id="column-center" >
+      	<br>
+			<p class= "main">
+				<h1>Feedback</h1>
+				<form method="POST" action="feedback_send.php">
+				  <input type="radio" name="geschlecht" value="Frau"/> Frau
+				  <input type="radio" name="geschlecht" value="Herr"/> Herr<br />
+				  <table>
+					<tr><td>Vorname:</td>
+				       <td><input type="text" name="name" size="50" /></td>
+				    </tr>
+				    <tr><td>Name:</td>
+				       <td><input type="text" name="name" size="50" /></td>
+				    </tr>
+				    <tr><td>E-Mail: </td>
+				       <td><input type="text" name="email" size="50" /></td>
+				    </tr>
+					<tr><td>Alter: </td>
+				       <td><input type="text" name="email" size="25" /></td>
+				    </tr>
+				  </table>
+				  Feedback: <br />
+				  <textarea name="message" rows="10" cols="50"></textarea>
+				  <br />
+				  <input type="checkbox" name="team" checked="checked" value="ON" />
+				         Ich bin Mitglied des geoweb-Teams <br /><br />
+				  <input type="submit" value="Abschicken">
+				  <input type="reset" value="Zur&uuml;cksetzen"> <br /><br />
+				  Ihr Feedback wird per E-Mail an die Autoren/innen zugestellt<br>
+				  und in der Projekt-Datenbank gespeichert.<br /><br />
+				  <br />
+				</form>
+
+				<p>geoweb.m10 (JB), Beispiel ausgehend von<br />
+
+				<a href="http://www.thesitewizard.com/archive/feedbackphp.shtml"
+				target="_blank" class="main"> PHP Tutorial: Feedback Form Script</a> </p>
+			</div>
+
+
+
+		<div id="footer">
+		<p class="foot">
+			F&uuml;r die Seite verantwortlich:<br>
+			Agnes Daniel | Florian Keringer | Lindiella Krasniqi </p>
+			</br>
+		</div>
+</div>
+
+
+  </body>
+
+</html>
