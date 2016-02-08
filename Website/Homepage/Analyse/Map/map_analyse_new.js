@@ -6,7 +6,7 @@ var osmLayer = new ol.layer.Tile({source: new ol.source.OSM()});
 var wmsLayer = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: 'http://student.ifip.tuwien.ac.at/geoserver/wms',
-    params: {'LAYERS': 'g07_2015:wien_data'}
+    params: {'LAYERS': 'g07_2015:wien_normalized'}
   }),
 
   opacity: 0.6,
@@ -17,28 +17,28 @@ var wmsLayer = new ol.layer.Image({
 var carsharing_layer = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: 'http://student.ifip.tuwien.ac.at/geoserver/wms',
-    params: {'LAYERS': 'g07_2015:CARSHARINGOGDPoint'}
+    params: {'LAYERS': 'g07_2015:carsharing'}
   }),
 });
 
 var haltestellen_layer = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: 'http://student.ifip.tuwien.ac.at/geoserver/wms',
-    params: {'LAYERS': 'g07_2015:HALTESTELLEWLOGDPoint'}
+    params: {'LAYERS': 'g07_2015:oevhaltestellen'}
   }),
 });
 
 var garagen_layer = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: 'http://student.ifip.tuwien.ac.at/geoserver/wms',
-    params: {'LAYERS': 'g07_2015:GARAGENOGDPoint'}
+    params: {'LAYERS': 'g07_2015:park_u_ride_anlagen'}
   }),
 });
 
 var citybike_layer = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: 'http://student.ifip.tuwien.ac.at/geoserver/wms',
-    params: {'LAYERS': 'g07_2015:CITYBIKEOGDPoint'}
+    params: {'LAYERS': 'g07_2015:citybike'}
   }),
 });
 
@@ -60,7 +60,7 @@ var grenzen_layer = new ol.layer.Image({
 var comment = new ol.layer.Image({
   source: new ol.source.ImageWMS({
     url: 'http://student.ifip.tuwien.ac.at/geoserver/wms',
-    params: {'LAYERS': 'g07_2015:comments'}
+    params: {'LAYERS': 'g07_2015:comments_wien'}
   }),
 });
 

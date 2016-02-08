@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
+
+<html>
+<head>
+	<title>Geoweb Gruppe 7 - Analyse</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<link rel="stylesheet" type="text/css" href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+	<!-- JQuery -->
+	<script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+	<!-- OpenLayers -->
+	<link rel="stylesheet" href="http://openlayers.org/en/v3.11.0/css/ol.css" type="text/css">
+	<script src="http://openlayers.org/en/v3.11.0/build/ol.js"></script>
+</head>
+
+<body>
+
+<div id="wrapper">
+
+	<div id="header" >
+		<img src="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/images/Banner.png"
+			width="800px"
+      height="240px">
+
+  	<ul class="a">
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/index.htm" class="active">Home</a></li>
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/team/team.htm">Team</a></li>
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/intranet/index_intranet_g07.htm">Intranet</a></li>
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/analyse/analyse.htm">Analyse</a></li>
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/feedback/feedback.htm">Feedback</a></li>
+			<li><a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/impressum/impressum.htm">Impressum</a></li>
+			</ul>
+		</div>
+
+
+
+    <div id="column-center" >
+      	<br>
+			<p class= "main">
+			<h1>Analyse</h1>
+			Es wird eine Applikation f&uuml;r Dienstleistungsbetriebe erstellt, welchen die Standortwahl erleichtern soll.
+			Die Betriebe sollen dadurch einen f&uuml;r sie passenden Standort w&auml;hlen k&ouml;nnen. Dabei liegt der Fokus auf die MitarbeiterInnen
+			und KundInnen. Diesen soll die Anreise m&ouml;glichst leicht gemacht werden - Ziel der Applikation ist die Nachhaltigkeit in der
+			Stadt zu st&auml;rken. Aus diesem Grund ist die r&auml;umliche Mobilit&auml;tsanbindung sehr relevant. Dabei k&ouml;nnen die Betriebe wichtige
+			Merkmale wie Citybike-Stationen, &Ouml;V-Stationen etc. ausw&auml;hlen, welche punktuell dargestellt werden.
+			Zus&auml;tzlich wird die Bev&ouml;lkerungsdichte auf Bezirksebene fl&auml;chig dargestellt, damit die dicht besiedelten R&auml;ume klar ersichtlich sind,
+ 			falls sich die Betriebe dort ansiedeln wollen.<br>
+			<br>
+			Verwendete Daten:
+			<p><a href="https://open.wien.gv.at/site/open-data/" target="_blank" class="main">https://open.wien.gv.at/site/open-data/</a></p>
+
+			<h2>Karte</h2>
+			<a href="http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Homepage/analyse/map/index_map.html"
+			target="_blank" class="main">hier gehts zur Erreichbarkeitsanalyse!</a> </p>
+			<!--Navigationsleiste-->
+			<form id="searchform">
+			  <input name="search" size="60" type="text" placeholder="Search, e.g. 'Vienna', 'Karlsplatz 13, Wien'">
+			  <input type="submit" value="Search"><button id="relocate">Back to my Location</button><br>
+			</form>
+
+			<!--Karte-->
+			<div id="map">
+			<script>
+			var marker = new ol.Feature();
+			var map = new ol.Map({
+			  target: 'map',
+			  layers: [
+			      new ol.layer.Tile({
+			      source: new ol.source.OSM()
+			      }),
+			      new ol.layer.Vector({
+			    	source: new ol.source.Vector({
+			    	features: [marker]
+			    	}),
+
+			      style: new ol.style.Style ({
+			      image: new ol.style.Icon(({
+			          anchor: [0.5, 0.9],
+			          scale: 0.15,
+			          anchorXUnits: 'fraction',
+			          anchorYUnits: 'fraction',
+			          opacity: 0.75,
+			      src: 'http://student.ifip.tuwien.ac.at/geoweb/2015/g07/Ue5/map_marker_blue.png'
+			      }))
+			      })
+			      })
+			        ],
+
+			        view: new ol.View({
+			     center: ol.proj.transform([16.373, 48.208], 'EPSG:4326', 'EPSG:3857'), zoom: 15,
+			     })
+			     });
+
+
+			var geolocation = new ol.Geolocation({
+			  projection: map.getView().getProjection(),
+			  tracking: true
+			});
+			geolocation.once('change:position', function(evt) {
+			  map.getView().setCenter(geolocation.getPosition());
+			  marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
+			  });
+
+			var form = document.getElementById('searchform');
+			form.onsubmit = function(evt) {
+			  evt.preventDefault();
+			  var q = form.search.value;
+			  var url = 'http://nominatim.openstreetmap.org/search?format=json&q=' + q;
+			  var xhr = new XMLHttpRequest();
+			  xhr.open('GET', url);
+			  xhr.onload = function() {
+			    var result = JSON.parse(xhr.responseText);
+			    if (result.length > 0) {
+			      var first = result[0];
+			      form.search.value = first.display_name;
+			      map.getView().setCenter(ol.proj.fromLonLat([
+			        parseFloat(first.lon),
+			        parseFloat(first.lat)
+
+			      ]));
+			      marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
+			    }
+			  };
+			  xhr.send();
+			};
+
+			var button =document.getElementById('relocate');
+			button.addEventListener ('click', relocatepos);
+			          function relocatepos() {
+			            var geolocation2 = new ol.Geolocation({
+			              projection: map.getView().getProjection(),
+			              tracking: true
+			              });
+			            geolocation.once('change:position', function(evt) {
+			            map.getView().setCenter(geolocation.getPosition());
+			            marker.setGeometry(new ol.geom.Point(map.getView().getCenter()));
+			            });
+			      }
+
+
+			</script>
+			</div>
+		</div>
+		<div id="footer">
+		<p class="foot">
+			F&uuml;r die Seite verantwortlich:<br>
+			Agnes Daniel | Florian Keringer | Lindiella Krasniqi </p>
+			</br>
+		</div>
+		</div>
+
+
+  </body>
+
+</html>

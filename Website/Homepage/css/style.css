@@ -105,6 +105,8 @@ h2{
 	text-align: left;
   }
 
+
+
 li.main {
 	font-size: 10px;
 	font-family: 'Titillium Web', sans-serif;
@@ -118,7 +120,7 @@ ul.main{
 
 
 	a.main:link, a.main:visited {
-			font-size: 10px;
+			font-size: 12px;
 			font-family: 'Titillium Web', sans-serif;
 			font-weight: 400;
 			display: inline;
@@ -133,7 +135,7 @@ ul.main{
 
 	}
 	a.main:hover, a.main:active {
-			font-size: 10px;
+			font-size: 12px;
 			font-family: 'Titillium Web', sans-serif;
 			font-weight: 400;
 			display: inline;
